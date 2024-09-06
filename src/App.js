@@ -199,8 +199,8 @@ const MatrixChatPage = () => {
         position: 'relative',
         zIndex: 1,
       }}>
-        <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Welcome to the Matrix</h1>
-        <p style={{ textAlign: 'center', marginBottom: '20px' }}>Enter the digital realm and uncover the truth.</p>
+        <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>reorganism.in</h1>
+        <p style={{ textAlign: 'center', marginBottom: '20px' }}>being human with ai</p>
         <form onSubmit={handleSubmit} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div style={{ position: 'relative', width: '70%' }}>
             <span style={{ position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', color: '#00ff00' }}>{'>'}</span>
