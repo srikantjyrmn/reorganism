@@ -4,7 +4,7 @@
 import os
 from firebase_functions import https_fn
 from firebase_admin import initialize_app
-from chat_functions import chat_with_Claude, chat_with_Openai
+from chat_functions import chat_with_index
 from dotenv import load_dotenv
 
 # initialize_app()
@@ -19,7 +19,11 @@ from dotenv import load_dotenv
 # Load environment variables from .env file for local development
 load_dotenv()
 
-initialize_app()
+from firebase_utils import get_firebase_app
+from chat_functions import chat_with_index
+
+# Initialize Firebase app
+app = get_firebase_app()
 
 @https_fn.on_call()
 def chat(req: https_fn.CallableRequest) -> dict:
@@ -38,7 +42,7 @@ def chat(req: https_fn.CallableRequest) -> dict:
                 raise ValueError("OPENAI_API_KEY not found")
             
             os.environ['OPENAI_API_KEY'] = api_key  # Ensure the API key is in the environment
-            claude_response = chat_with_Openai(message)
+            claude_response = chat_with_index(message)
             if claude_response:
                 full_response = f"{claude_response}"
             else:
